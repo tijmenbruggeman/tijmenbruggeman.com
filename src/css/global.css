@@ -1,0 +1,103 @@
+:root {
+  --c-black: #05091e;
+  --c-blue: #46b4ff;
+  --c-gray: #90aab7;
+  --c-green: #9ef2cb;
+  --c-pink: #ffb8d9;
+  --c-orange: #ffb7a3;
+  --c-yellow: #ffdace;
+  --c-white: #fff;
+
+  --step--2: clamp(0.61rem, 0.58rem + 0.09vw, 0.64rem);
+  --step--1: clamp(0.73rem, 0.66rem + 0.19vw, 0.8rem);
+  --step-0: clamp(0.88rem, 0.76rem + 0.34vw, 1rem);
+  --step-1: clamp(1.05rem, 0.86rem + 0.54vw, 1.25rem);
+  --step-2: clamp(1.26rem, 0.98rem + 0.82vw, 1.56rem);
+  --step-3: clamp(1.51rem, 1.1rem + 1.2vw, 1.95rem);
+  --step-4: clamp(1.81rem, 1.23rem + 1.7vw, 2.44rem);
+  --step-5: clamp(2.18rem, 1.36rem + 2.37vw, 3.05rem);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: 'Inter';
+  background-image: url('/public/assets/bgsvg.svg');
+  font-size: var(--step-0);
+}
+
+h1 {
+  font-size: var(--step-5);
+}

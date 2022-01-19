@@ -1,0 +1,11 @@
+---
+import NotionCallout from '@/components/NotionBlocks/NotionCallout.astro';
+const { block } = Astro.props;
+const blocksToRender = {
+ callout: NotionCallout,
+}
+const RenderBlock = blocksToRender[block.type];
+---
+    <div>
+        {RenderBlock ? <RenderBlock {block} /> : block.type}
+    </div>
