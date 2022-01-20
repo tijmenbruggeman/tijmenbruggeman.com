@@ -1,0 +1,11 @@
+---
+import NotionText from '@/components/NotionBlocks/NotionText.astro';
+const { block } = Astro.props;
+---
+    <style>
+    p {
+        max-width: 550px;
+        padding: 15px 30px;
+    }
+    </style>
+<p>{block.paragraph.text.map(t => <NotionText block={t} />)}</p>

@@ -1,0 +1,15 @@
+---
+import NotionColumn from '@/components/NotionBlocks/NotionColumn.astro';
+import { notion } from '../../modules/notion';
+const { block } = Astro.props
+let columns = [];
+if (block.has_children) {
+  const { results } = await notion.blocks.children.list({
+      block_id: block.id,
+  });
+  columns = results;
+}
+---
+<div class="notion-columnlist">
+    {columns.map(c => <NotionColumn block={c} />)}
+</div>

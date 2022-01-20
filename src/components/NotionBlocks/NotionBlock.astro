@@ -1,8 +1,15 @@
 ---
 import NotionCallout from '@/components/NotionBlocks/NotionCallout.astro';
+import NotionParagraph from '@/components/NotionBlocks/NotionParagraph.astro';
+import NotionDivider from '@/components/NotionBlocks/NotionDivider.astro';
+import NotionColumnList from '@/components/NotionBlocks/NotionColumnList.astro';
+
 const { block } = Astro.props;
 const blocksToRender = {
  callout: NotionCallout,
+ paragraph: NotionParagraph,
+ divider: NotionDivider,
+ column_list: NotionColumnList,
 }
 const RenderBlock = blocksToRender[block.type];
 ---

@@ -1,0 +1,12 @@
+---
+import { notion } from '../../modules/notion';
+const { block } = Astro.props;
+
+let children = [];
+if (block.has_children) {
+  children = await notion.blocks.children.list({
+      block_id: block.id,
+  });
+}
+console.log('children:', children)
+---

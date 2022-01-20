@@ -1,6 +1,5 @@
 ---
 import NotionText from '@/components/NotionBlocks/NotionText.astro';
-import Debug from 'astro/debug';
 
 const { block } = Astro.props;
 ---
@@ -15,4 +14,3 @@ const { block } = Astro.props;
 <div class="notion-callout">
     {block.callout.text.map(t => <NotionText block={t} />)}
 </div>
-<Debug {Astro.props} />
