@@ -1,0 +1,7 @@
+---
+import urlSlug from 'url-slug';
+const { block } = Astro.props;
+const slug = urlSlug(block.child_page.title);
+const url = `/page/${slug}`
+---
+<a href={url}>{block.child_page.title}</a>

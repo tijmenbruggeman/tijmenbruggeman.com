@@ -1,0 +1,35 @@
+---
+import MainHead from '@/components/MainHead.astro';
+import NotionPage from '@/components/NotionBlocks/NotionPage.astro';
+import { fetchChildPages, ROOT_ID } from '../../modules/notion';
+import urlSlug from 'url-slug';
+
+export async function getStaticPaths() {
+const childPages = await fetchChildPages(ROOT_ID);
+  return childPages.map((page) => {
+      const slug = urlSlug(page.child_page.title);
+      console.log('slug:', slug)
+      return {
+        params: {
+            slug,
+        },
+        props: {
+            page,
+        }
+      }
+  });
+}
+const {slug} = Astro.request.params;
+const {page} = Astro.props;
+console.log('page:', page)
+---
+<html lang="en">
+  <head>
+    <MainHead title="Tijmen Bruggeman: Creative Developer" description="Tijmen Bruggeman: " />
+   <style>
+    </style>
+  </head>
+  <body>
+    <NotionPage pageId={page.id}  />
+  </body>
+</html>

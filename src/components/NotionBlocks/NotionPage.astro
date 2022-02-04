@@ -19,7 +19,7 @@ const { results: blocks } = pageBlocksResult;
 ---
 
 <main>
-  <NotionCover cover={page.cover} />
+  {page.cover && <NotionCover cover={page.cover} />}
   <NotionTitle title={title} />
   {blocks.map(b => <NotionBlock block={b} />)}
 </main>

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@notionhq/client": "0.4.12",
-    "html-entities": "^2.3.2"
+    "html-entities": "^2.3.2",
+    "url-slug": "^3.0.3"
   }
 }

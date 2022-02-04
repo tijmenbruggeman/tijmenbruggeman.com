@@ -3,6 +3,7 @@ import NotionCallout from '@/components/NotionBlocks/NotionCallout.astro';
 import NotionParagraph from '@/components/NotionBlocks/NotionParagraph.astro';
 import NotionDivider from '@/components/NotionBlocks/NotionDivider.astro';
 import NotionColumnList from '@/components/NotionBlocks/NotionColumnList.astro';
+import NotionChildPage from '@/components/NotionBlocks/NotionChildPage.astro';
 
 const { block } = Astro.props;
 const blocksToRender = {
@@ -10,6 +11,7 @@ const blocksToRender = {
  paragraph: NotionParagraph,
  divider: NotionDivider,
  column_list: NotionColumnList,
+ child_page: NotionChildPage,
 }
 const RenderBlock = blocksToRender[block.type];
 ---
