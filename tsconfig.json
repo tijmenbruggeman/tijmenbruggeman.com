@@ -1,9 +1,11 @@
 {
   "moduleResolution": "node",
+  "resolveJsonModule": true,
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["/src/components/*"]
+      "@/components/*": ["/src/components/*"],
+      "data": ["/src/data.json"]
     }
   }
 }

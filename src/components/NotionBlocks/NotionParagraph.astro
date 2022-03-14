@@ -8,4 +8,4 @@ const { block } = Astro.props;
         padding: 15px 30px;
     }
     </style>
-<p>{block.paragraph.text.map(t => <NotionText block={t} />)}</p>
+<p>{block.paragraph.rich_text.map(t => <NotionText block={t} />)}</p>

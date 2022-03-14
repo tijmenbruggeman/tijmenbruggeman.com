@@ -1,11 +1,10 @@
 ---
 import MainHead from '@/components/MainHead.astro';
 import NotionPage from '@/components/NotionBlocks/NotionPage.astro';
-import { fetchChildPages, ROOT_ID } from '../../modules/notion';
 import urlSlug from 'url-slug';
+import notioncontent from '../../../notioncontent.json';
 
 export async function getStaticPaths() {
-const childPages = await fetchChildPages(ROOT_ID);
   return childPages.map((page) => {
       const slug = urlSlug(page.child_page.title);
       return {

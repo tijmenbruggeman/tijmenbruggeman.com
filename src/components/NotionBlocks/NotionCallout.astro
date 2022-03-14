@@ -12,5 +12,5 @@ const { block } = Astro.props;
 }
 </style>
 <div class="notion-callout">
-    {block.callout.text.map(t => <NotionText block={t} />)}
+    {block.callout.rich_text.map(t => <NotionText block={t} />)}
 </div>

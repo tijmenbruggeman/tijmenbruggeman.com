@@ -1,15 +1,7 @@
 ---
 import NotionBlock from '@/components/NotionBlocks/NotionBlock.astro';
-import { notion } from '../../modules/notion';
 const { block } = Astro.props;
 
-let children = [];
-if (block.has_children) {
-  const { results } = await notion.blocks.children.list({
-    block_id: block.id,
-  });
-  children = results;
-}
 ---
 <div class="notion-column">
   {children.map(b => <NotionBlock block={b} />)}

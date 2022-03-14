@@ -4,6 +4,8 @@ import NotionParagraph from '@/components/NotionBlocks/NotionParagraph.astro';
 import NotionDivider from '@/components/NotionBlocks/NotionDivider.astro';
 import NotionColumnList from '@/components/NotionBlocks/NotionColumnList.astro';
 import NotionChildPage from '@/components/NotionBlocks/NotionChildPage.astro';
+import NotionHeading from '@/components/NotionBlocks/NotionHeading.astro';
+import NotionImage from '@/components/NotionBlocks/NotionImage.astro';
 
 const { block } = Astro.props;
 const blocksToRender = {
@@ -12,9 +14,13 @@ const blocksToRender = {
  divider: NotionDivider,
  column_list: NotionColumnList,
  child_page: NotionChildPage,
+ heading_1: NotionHeading,
+ heading_2: NotionHeading,
+ heading_3: NotionHeading,
+ image: NotionImage,
 }
 const RenderBlock = blocksToRender[block.type];
 ---
     <div>
-        {RenderBlock ? <RenderBlock {block} /> : block.type}
+        {RenderBlock ? <RenderBlock {block} /> : <span>{block.type}</span>}
     </div>

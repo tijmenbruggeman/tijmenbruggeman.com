@@ -1,18 +1,20 @@
 {
-  "name": "@example/portfolio",
+  "name": "tijmenbruggeman.com",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "content": "ts-node notion-cms/fetchContent.ts"
   },
   "devDependencies": {
-    "astro": "0.22.14"
+    "astro": "^0.23.7",
+    "ts-node": "^10.7.0"
   },
   "dependencies": {
-    "@notionhq/client": "0.4.12",
+    "@notionhq/client": "^1.0.2",
     "html-entities": "^2.3.2",
     "url-slug": "^3.0.3"
   }

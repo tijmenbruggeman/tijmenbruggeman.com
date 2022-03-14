@@ -2,24 +2,17 @@
 import NotionTitle from '@/components/NotionBlocks/NotionTitle.astro';
 import NotionCover from '@/components/NotionBlocks/NotionCover.astro';
 import NotionBlock from '@/components/NotionBlocks/NotionBlock.astro';
-import { notion } from '../../modules/notion';
+import data from 'data';
+const { pageId: pageUUID } = Astro.props;
+const pageId = pageUUID.replaceAll('-', '');
 
-const { pageId } = Astro.props;
-
-const [page, pageBlocksResult] = await Promise.all([
-  notion.pages.retrieve({
-    page_id: pageId,
-  }),
-  notion.blocks.children.list({
-    block_id: pageId,
-  }),
-]);
-const { title } = page.properties;
-const { results: blocks } = pageBlocksResult;
+const page = data.find(d => d.id === pageUUID);
+const pageTitle = page.properties.title;
+const pageBlocks = data.filter(d => d.parentId === pageId);
 ---
 
 <main>
   {page.cover && <NotionCover cover={page.cover} />}
-  <NotionTitle title={title} />
-  {blocks.map(b => <NotionBlock block={b} />)}
+  <NotionTitle title={pageTitle} />
+  {pageBlocks.map(b => <NotionBlock block={b} />)}
 </main>
