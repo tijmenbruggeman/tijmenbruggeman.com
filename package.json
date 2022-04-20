@@ -1,21 +1,16 @@
 {
-  "name": "tijmenbruggeman.com",
+  "name": "@example/starter",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "content": "ts-node notion-cms/fetchContent.ts"
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.23.7",
-    "ts-node": "^10.7.0"
-  },
-  "dependencies": {
-    "@notionhq/client": "^1.0.2",
-    "html-entities": "^2.3.2",
-    "url-slug": "^3.0.3"
+    "@astrojs/preact": "^0.1.1",
+    "astro": "^1.0.0-beta.14",
+    "preact": "^10.6.5"
   }
 }
