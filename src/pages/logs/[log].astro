@@ -1,0 +1,12 @@
+---
+import { LogLayout } from '../../layouts/LogLayout.astro';
+import { queryDatabase } from '../../notion';
+
+export async function getStaticPaths() {
+    // retrieve content from database notion
+    await queryDatabase()
+}
+---
+<LogLayout>
+
+</LogLayout>

@@ -9,21 +9,26 @@
 	font-size: 1rem;
 	--user-font-scale: 1rem - 16px;
 	font-size: clamp(0.875rem, 0.4626rem + 1.0309vw + var(--user-font-scale), 1.125rem);
+
+	--color-blackish: #485163;
+	--color-mint: #4FB286;
+	--color-lightcyan: #D7F9F1;
+	--color-xanthic: #F2F230;
+	--color-russianviolet: #20063B;
+
 }
 
 body {
-	padding: 4rem 2rem;
-	width: 100%;
-	min-height: 100vh;
-	display: grid;
-	justify-content: center;
-	background: #f9fafb;
-	color: #111827;
+	padding: 60px;
+}
+
+a {
+	color: var(--color-blackish);
 }
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background: #111827;
+		background: var(--color-blackish);
 		color: #fff;
 	}
 }

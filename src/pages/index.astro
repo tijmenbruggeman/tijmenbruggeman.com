@@ -1,8 +1,9 @@
 ---
-import { AboutMe } from '../content/AboutMe.md';
-import { Currently } from '../content/Currently.md';
+
+import Header from '@components/Header.astro';
+import { Content as AboutMe } from '../content/AboutMe.md';
+import { Content as Currently } from '../content/Currently.md';
 import '../styles/global.css';
-import '../styles/home.css';
 let title = 'Home';
 ---
 <html lang="en">
@@ -14,54 +15,16 @@ let title = 'Home';
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 	<style>
-		header {
-			display: flex;
-			flex-direction: column;
-			max-width: min(100%, 68ch);
-		}
-		article {
-			padding-top: 2em;
-			line-height: 1.5;
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-			max-width: 70ch;
-		}
 		.banner {
 			text-align: center;
-			background: var(--color-light);
+			background: var(--color-mint);
 			padding: 1em 1.5em;
+			color: #fff;
 			padding-left: 0.75em;
-		}
-		.site-title {
-			font-size: 38px;
-			text-transform: uppercase;
-			font-weight: 800;
-			margin: 0;
-			line-height: 38px;
-			letter-spacing: 0.2;
-			text-align: center;
-		}
-		.site-subtitle {
-			font-size: 24px;
-			text-transform: uppercase;
-			letter-spacing: 9px;
-			text-align: center;
-			padding-left: 11px;
-			opacity: 0.5;
-		}
-		.nav {
-			list-style: none;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-		}
-		a {
-			display: inline-block;
-			padding: 20px;
-			text-decoration: none;
-			font-size: 18px;
-			text-transform: lowercase;
+			width: 620px;
+			margin-left: 80px;
+			margin-top: 60px;
+			margin-bottom: 60px;
 		}
 	</style>
 	<style is:global>
@@ -72,27 +35,10 @@ let title = 'Home';
 </head>
 <body>
 	<main>
-		<header>
-			<h1 class="site-title">Tijmen Bruggeman</h1>
-			<strong class="site-subtitle">Creative Developer</strong>
-			<nav>
-				<ul class="nav">
-					<li><a href="/work">Work</a></li>
-					<li><a href="/logs">Logs</a></li>
-				</ul>
-			</nav>
-		</header>
-
-		<article>
-			<div class="banner">
-					<Currently />
-			</div>
-			<div class="columns">
-				<div class="column">
-					<AboutMe />
-				</div>
-			</div>
-		</article>
+		<Header />
+		<div class="banner">
+			<Currently />
+		</div>
 	</main>
 </body>
 </html>
