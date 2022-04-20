@@ -12,6 +12,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			text-decoration: none;
 		}
 		.site-title {
 			font-size: 1.8rem;
@@ -38,7 +39,7 @@
 			padding: 0;
 			width: 140px;
 		}
-		a {
+		.nav-menu a {
 			display: block;
 			font-size: 13px;
 			padding: 4px;
@@ -46,16 +47,16 @@
 			text-decoration: none;
 			transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 220ms;
 		}
-		a:hover {
+		.nav-menu a:hover {
 			background-color: var(--color-russianviolet);
 			color: #fff;
 		}
 	</style>
 <header>
-	<div class="site-logo">
+	<a href="/" class="site-logo">
     	<h1 class="site-title">Tijmen Bruggeman</h1>
     	<strong class="site-subtitle">Creative Developer</strong>
-	</div>
+	</a>
     <nav class="nav">
 			<ul  class="nav-menu">
 				<li><a href="/bio">Bio</a></li>

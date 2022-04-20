@@ -1,0 +1,9 @@
+---
+import NotionParagraph from '@components/NotionParagraph.astro';
+const { block } = Astro.props;
+const blocksToRender = {
+ paragraph: NotionParagraph,
+}
+const RenderBlock = blocksToRender[block.type];
+---
+{RenderBlock ? <RenderBlock {block} /> : block.type}

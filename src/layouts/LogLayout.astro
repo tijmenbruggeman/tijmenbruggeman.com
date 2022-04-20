@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+---
+<style>
+.log {
+}
+</style>
+<BaseLayout title={Astro.props.title}>
+    <article class="log">
+        <slot />
+    </article>
+</BaseLayout>

@@ -1,12 +1,24 @@
 ---
-import { LogLayout } from '../../layouts/LogLayout.astro';
+import LogLayout from '../../layouts/LogLayout.astro';
+import NotionBlock from '@components/NotionBlock.astro';
 import { queryDatabase } from '../../notion';
 
 export async function getStaticPaths() {
     // retrieve content from database notion
-    await queryDatabase()
+    const result = await queryDatabase();
+    return result.map((logPost) => ({
+        params: {
+            log: logPost.slug,
+        },
+        props: logPost,
+    }));
 }
----
-<LogLayout>
 
+const { title, children } = Astro.props;
+---
+<LogLayout title={title}>
+    <h1>{title}</h1>
+    <section>
+        {children.map((c => <NotionBlock block={c} />))}
+    </section>
 </LogLayout>

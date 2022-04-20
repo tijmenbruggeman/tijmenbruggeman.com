@@ -1,44 +1,10 @@
 ---
-
-import Header from '@components/Header.astro';
-import { Content as AboutMe } from '../content/AboutMe.md';
-import { Content as Currently } from '../content/Currently.md';
-import '../styles/global.css';
-let title = 'Home';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Content as Currently } from '@content/Currently.md';
+import '../styles/home.css';
 ---
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
-
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-	<style>
-		.banner {
-			text-align: center;
-			background: var(--color-mint);
-			padding: 1em 1.5em;
-			color: #fff;
-			padding-left: 0.75em;
-			width: 620px;
-			margin-left: 80px;
-			margin-top: 60px;
-			margin-bottom: 60px;
-		}
-	</style>
-	<style is:global>
-		pre {
-			padding: 1rem;
-		}
-	</style>
-</head>
-<body>
-	<main>
-		<Header />
-		<div class="banner">
-			<Currently />
-		</div>
-	</main>
-</body>
-</html>
+<BaseLayout>
+	<div class="banner">
+		<Currently />
+	</div>
+</BaseLayout>

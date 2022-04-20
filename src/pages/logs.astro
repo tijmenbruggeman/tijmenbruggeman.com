@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { queryDatabase } from '../notion';
+const result = await queryDatabase();
+const test = result.map(({ slug, ...rest }) => ({
+    slug,
+	...rest,
+}));
+---
+<style>
+
+a {
+    display: block;
+    max-width: 460px;
+    font-size: 16px;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 220ms;
+}
+</style>
+<BaseLayout>
+<h1 class="page-title">Logs</h1>
+<ul class="unstyled">
+    {test.map(({ slug, title }) => (<li>
+        <a href={`logs/${slug}`}>{title}</a>
+    </li>))}
+</ul>
+</BaseLayout>

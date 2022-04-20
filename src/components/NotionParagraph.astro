@@ -1,0 +1,8 @@
+---
+const { block } = Astro.props;
+const { paragraph } = block;
+const { rich_text, annotations } = paragraph;
+const [{ text }] = rich_text;
+---
+
+<p>{text.content}</p>
