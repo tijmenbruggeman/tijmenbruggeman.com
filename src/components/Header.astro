@@ -1,11 +1,14 @@
 
 	<style>
-		header {
+		.site-header {
 			display: grid;
-			grid-template-areas: 'title menu';
-			grid-template-columns: 380px 1fr;
+			grid-template-areas: 
+				'title'
+				'menu'
+			;
+			grid-template-columns: 380px;
 			grid-gap: 20px;
-			max-width: 960px;
+			margin-bottom: 60px;
 		}
 		.site-logo {
 			grid-area: title;
@@ -52,7 +55,7 @@
 			color: #fff;
 		}
 	</style>
-<header>
+<header class="site-header">
 	<a href="/" class="site-logo">
     	<h1 class="site-title">Tijmen Bruggeman</h1>
     	<strong class="site-subtitle">Creative Developer</strong>

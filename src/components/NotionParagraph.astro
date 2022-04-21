@@ -1,8 +1,27 @@
 ---
 const { block } = Astro.props;
 const { paragraph } = block;
-const { rich_text, annotations } = paragraph;
-const [{ text }] = rich_text;
----
+const { rich_text } = paragraph;
 
-<p>{text.content}</p>
+
+function getAnnotationClass(annotations): string {
+    if (!annotations) return '';
+    
+    const classes = [];
+    Object.keys(annotations).forEach((annotation) => {
+        if (annotations[annotation] === true) {
+            classes.push(annotation);
+        }
+    });
+    return classes.join(' ');
+}
+---
+<style>
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+</style>
+<p>{rich_text.map(({ text, annotations }) => <span class={getAnnotationClass(annotations)}>{text.content}</span>)}</p>

@@ -28,7 +28,7 @@ export async function queryDatabase(databaseId = '93ad2c68a89f4a56be60d83af00124
         const children = await retrieveBlockChildren(page.id);
         return {
             id: page.id,
-            updatedAt: last_edited_time,
+            updatedAt: last_edited_time.split('T')[0],
             createdAt: created_time,
             title,
             slug: slugify(title, { lower: true, trim: true }),

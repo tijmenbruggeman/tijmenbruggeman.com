@@ -5,8 +5,8 @@ import { queryDatabase } from '../../notion';
 
 export async function getStaticPaths() {
     // retrieve content from database notion
-    const result = await queryDatabase();
-    return result.map((logPost) => ({
+    const logPosts = await queryDatabase();
+    return logPosts.map((logPost) => ({
         params: {
             log: logPost.slug,
         },
