@@ -17,8 +17,8 @@ export async function getStaticPaths() {
 const { title, children } = Astro.props;
 ---
 <LogLayout title={title}>
-    <h1>{title}</h1>
-    <section>
+    <h1 class="page-title">{title}</h1>
+    <section class="page-content">
         {children.map((c => <NotionBlock block={c} />))}
     </section>
 </LogLayout>

@@ -38,9 +38,15 @@ p {
 }
 
 .page-title {
-  display: inline-block;
-  min-width: 220px;
-  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 50px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  transform: skewX(12deg);
+}
+
+.page-content {
+  max-width: 700px;
 }
 
 ul.unstyled {
