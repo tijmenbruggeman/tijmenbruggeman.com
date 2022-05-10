@@ -1,35 +1,64 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import '../styles/bio.css';
 ---
 <BaseLayout>
-<article>
-    <section class="intro">
-        <h1 class="page-title">Tijmen is the name, software is the game.</h1>
-        <p>Want to have a 'bit of a background info? Your at the right page. Want to know more about the work I made? Check it out here.</p>
-    </section>
-    <section>
-        <ul>
-            <li>Topicus</li>
-            <li>WCreate</li>
-            <li>Print.com</li>
-        </ul>
-    </section>
-
-    <section>
-        <ul>
-            <li>Vue</li>
-            <li>React</li>
-            <li>Wordpress</li>
-            <li>Laravel</li>
-            <li>React</li>
-            <li>NextJS</li>
-            <li>AWS</li>
-            <li>Netlify</li>
-            <li>NodeJS</li>
-            <li>Serverless</li>
-            <li>Golang</li>
-            <li>.NET</li>
-        </ul>
-    </section>
-</article>
+    <div class="bio">
+        <aside>
+            <section class="bio-section">
+                <h2 class="section-title">Contact</h2>
+                <ul class="list-unstyled">
+                    <li><a href="mailto:hi@tijmenbruggeman.com">hi@tijmenbruggeman.com</a></li>
+                    <li>Wierden, NL</li>
+                    <li><a href="https://tijmenbruggeman.com">tijmenbruggeman.com</a></li>
+                </ul>
+            </section>
+            <section class="bio-section">
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <strong>Human Information Design & Strategy</strong>
+                    <span>Saxion 2008 - 2012</span>
+                </div>
+                <div class="education">
+                    <strong>Honours Programme Saxion</strong>
+                    <span>Saxion 2009 - 2012</span>
+                </div>
+            </section>
+        </aside>
+        <article>
+            <section class="bio-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience">
+                    <strong>Print.com</strong>
+                    <span>Chief Technology Officer</span>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu</p>
+                    <ul class="skill-list">
+                        <li>Vue</li>
+                        <li>AWS</li>
+                        <li>Node</li>
+                        <li>Serverless</li>
+                        <li>GoLang</li>
+                    </ul>
+                </div>
+                <div class="experience">
+                    <strong>WCreate</strong>
+                    <span>Freelance Development</span>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu</p>
+                    <ul class="skill-list">
+                        <li>WordPress</li>
+                        <li>Laravel</li>
+                    </ul>
+                </div>
+                <div class="experience">
+                    <strong>Topicus Findesk</strong>
+                    <span>Software Developer</span>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu</p>
+                    <ul class="skill-list">
+                        <li>.NET</li>
+                        <li>Azure</li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </div>
 </BaseLayout>

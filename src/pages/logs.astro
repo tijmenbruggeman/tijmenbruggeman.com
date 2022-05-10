@@ -28,7 +28,7 @@ a {
 <h1 class="page-title">Logs</h1>
 <ul class="unstyled">
     {logPosts.map(({ slug, title, updatedAt }) => (<li>
-        <a href={`logs/${slug}`} class="loglink">
+        <a href={`/logs/${slug}`} class="loglink">
             <span>{title}</span>
             <span class="loglink_date">{updatedAt}</span>
         </a>

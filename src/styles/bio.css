@@ -1,0 +1,34 @@
+.bio {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 40px;
+}
+
+.skill-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.skill-list li {
+    padding: 3px 6px;
+    background-color: var(--color-lightcyan);
+    margin-right: 6px;
+}
+
+.education {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.bio-section {
+    margin-bottom: 4rem;
+}
+
+.experience {
+    margin-bottom: 2rem;
+}
+
+.experience p {
+    color: var(--color-blackish);
+}
