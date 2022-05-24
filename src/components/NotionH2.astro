@@ -1,0 +1,7 @@
+---
+const { block } = Astro.props;
+const { heading_2 } = block;
+const { rich_text } = heading_2;
+const [{ text }] = rich_text;
+---
+<h2>{text.content}</h2>

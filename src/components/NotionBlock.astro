@@ -1,8 +1,12 @@
 ---
 import NotionParagraph from '@components/NotionParagraph.astro';
+import NotionH1 from '@components/NotionH1.astro';
+import NotionH2 from '@components/NotionH2.astro';
 const { block } = Astro.props;
 const blocksToRender = {
  paragraph: NotionParagraph,
+ heading_1: NotionH1,
+ heading_2: NotionH2,
 }
 const RenderBlock = blocksToRender[block.type];
 ---
