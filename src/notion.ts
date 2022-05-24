@@ -41,3 +41,18 @@ export async function queryDatabase(databaseId = '93ad2c68a89f4a56be60d83af00124
     databases[databaseId] = pages;
     return pages;
 }
+
+function queryPage(pageId: string) {
+    return notion.pages.retrieve({ page_id: pageId });
+}
+
+export async function getPage(pageId: string): Promise<any> {
+    const [page, children] = await Promise.all([
+        queryPage(pageId),
+        retrieveBlockChildren(pageId),
+    ]);
+    return {
+        page,
+        children,
+    }
+}

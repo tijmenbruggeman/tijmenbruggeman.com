@@ -1,0 +1,16 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import NotionBlock from '@components/NotionBlock.astro';
+import { getPage } from '../notion';
+const pageId = '973f74633feb468d93b2159bc11834a9';
+const { page, children } = await getPage(pageId);
+const { properties } = page;
+const { title: titleProp } = properties;
+const [{ plain_text: title }] = titleProp.title;
+---
+<PageLayout title={title}>
+    <h1 class="page-title">{title}</h1>
+    <section class="page-content">
+        {children.map((c => <NotionBlock block={c} />))}
+    </section>
+</PageLayout>

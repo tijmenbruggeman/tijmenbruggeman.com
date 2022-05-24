@@ -1,0 +1,9 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+---
+<BaseLayout title={Astro.props.title}>
+    <article class="page">
+        <slot />
+    </article>
+</BaseLayout>

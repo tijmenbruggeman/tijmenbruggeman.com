@@ -20,9 +20,6 @@ a {
     justify-content: space-between;
     padding-bottom: 8px;
 }
-.loglink_date {
-    color: var(--color-grayish);
-}
 </style>
 <BaseLayout>
 <h1 class="page-title">Logs</h1>
@@ -30,7 +27,7 @@ a {
     {logPosts.map(({ slug, title, updatedAt }) => (<li>
         <a href={`/logs/${slug}`} class="loglink">
             <span>{title}</span>
-            <span class="loglink_date">{updatedAt}</span>
+            <span class="text-silent">{updatedAt}</span>
         </a>
     </li>))}
 </ul>

@@ -24,4 +24,7 @@ function getAnnotationClass(annotations): string {
     font-style: italic;
 }
 </style>
-<p>{rich_text.map(({ text, annotations }) => <span class={getAnnotationClass(annotations)}>{text.content}</span>)}</p>
+<p>{rich_text.map(({ href, text, annotations }) => {
+    if (href) return <a href={href} class={getAnnotationClass(annotations)}>{text.content}</a>
+    return <span class={getAnnotationClass(annotations)}>{text.content}</span>
+})}</p>

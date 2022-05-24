@@ -107,3 +107,7 @@ small,
   margin: 0;
   padding: 0;
 }
+
+.text-silent {
+  color: var(--color-grayish);
+}
