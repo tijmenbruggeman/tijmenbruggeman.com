@@ -14,7 +14,7 @@ async function retrieveBlockChildren(blockId: string) {
     });
     return results;
 }
-export async function queryDatabase(databaseId = '93ad2c68a89f4a56be60d83af001240b') {
+export async function queryDatabase(databaseId: string) {
     if (databases[databaseId]) return databases[databaseId];
 
     const { results } = await notion.databases.query({
@@ -22,7 +22,9 @@ export async function queryDatabase(databaseId = '93ad2c68a89f4a56be60d83af00124
     });
     const pagesPromise = results.map(async (page: any) => {
         const { properties, created_time, last_edited_time } = page;
+        console.log('properties:', properties)
         const { title: titleCol } = properties;
+        if (!titleCol) return undefined;
         const { title: titleArray } = titleCol;
         const [{ plain_text: title }] = titleArray;
         const children = await retrieveBlockChildren(page.id);
@@ -33,13 +35,14 @@ export async function queryDatabase(databaseId = '93ad2c68a89f4a56be60d83af00124
             title,
             slug: slugify(title, { lower: true, trim: true }),
             children,
+            properties,
         }
     });
 
     const pages = await Promise.all(pagesPromise);
-
-    databases[databaseId] = pages;
-    return pages;
+    const validPages = pages.filter(Boolean);
+    databases[databaseId] = validPages;
+    return validPages;
 }
 
 function queryPage(pageId: string) {

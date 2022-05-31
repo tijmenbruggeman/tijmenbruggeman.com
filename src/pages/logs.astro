@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { queryDatabase } from '../notion';
-const result = await queryDatabase();
+const result = await queryDatabase('93ad2c68a89f4a56be60d83af001240b');
 const logPosts = result.map(({ slug, ...rest }) => ({
     slug,
 	...rest,

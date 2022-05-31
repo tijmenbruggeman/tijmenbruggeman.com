@@ -1,7 +1,48 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { queryDatabase } from '../notion';
+
+const result = await queryDatabase('3e3027423d4942ac9ad3a68a735ce74f');
+const projects = result.map(({ slug, properties, ...rest }) => ({
+    slug,
+    image: getImage(properties.image),
+	...rest,
+}));
+
+function getImage(image) {
+    if (!image || !Array.isArray(image.files)) return undefined;
+    if (image.files.length === 0) return undefined;
+    const [file] = image.files;    
+    return {
+        url: file.file.url,
+        name: file.name,
+    }
+}
 ---
+<style>
+.gallery {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) ) ;
+}
+.gallery-item {
+
+}
+.gallery-item-image {
+    max-width: 100%;
+}
+
+</style>
 <BaseLayout>
-<h1 class="page-title">Work</h1>
-<p>Over the years I've built a lot of things. Most of my work went into websites, software but I also did small branding projects. I'm proud (of most of them) and learned a lot by doing it. Check out the gallery below for more.</p>
+    <h1 class="page-title">Work</h1>
+    <p>Over the years I've built a lot of things. Most of my work went into websites, software but I also did small branding projects. I'm proud (of most of them) and learned a lot by doing it. Check out the gallery below for more.</p>
+    <div class="gallery">
+        {projects.map(({ slug, title, updatedAt, image }) => (
+            <a href={`/logs/${slug}`} class="gallery-item">
+                {image && <img class="gallery-item-image" src={image.url} alt={image.name} />}
+                <span>{title}</span>
+                <span class="text-silent">{updatedAt}</span>
+            </a>
+        ))}
+    </div>
 </BaseLayout>
