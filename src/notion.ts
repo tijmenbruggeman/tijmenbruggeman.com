@@ -19,10 +19,16 @@ export async function queryDatabase(databaseId: string) {
 
     const { results } = await notion.databases.query({
         database_id: databaseId,
+        filter: {
+            select: {
+                equals: 'public'
+            },
+            property: 'visibility',
+            type: "select",
+        }
     });
     const pagesPromise = results.map(async (page: any) => {
         const { properties, created_time, last_edited_time } = page;
-        console.log('properties:', properties)
         const { title: titleCol } = properties;
         if (!titleCol) return undefined;
         const { title: titleArray } = titleCol;

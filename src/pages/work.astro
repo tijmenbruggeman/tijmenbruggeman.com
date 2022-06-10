@@ -2,10 +2,10 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { queryDatabase } from '../notion';
 
-const result = await queryDatabase('3e3027423d4942ac9ad3a68a735ce74f');
+const result = await queryDatabase('aebbf2a7cfef42f39c7a05f7107ecb89');
 const projects = result.map(({ slug, properties, ...rest }) => ({
     slug,
-    image: getImage(properties.image),
+    image: getImage(properties.screenshot),
 	...rest,
 }));
 
@@ -38,7 +38,7 @@ function getImage(image) {
     <p>Over the years I've built a lot of things. Most of my work went into websites, software but I also did small branding projects. I'm proud (of most of them) and learned a lot by doing it. Check out the gallery below for more.</p>
     <div class="gallery">
         {projects.map(({ slug, title, updatedAt, image }) => (
-            <a href={`/logs/${slug}`} class="gallery-item">
+            <a href={`/work/${slug}`} class="gallery-item">
                 {image && <img class="gallery-item-image" src={image.url} alt={image.name} />}
                 <span>{title}</span>
                 <span class="text-silent">{updatedAt}</span>

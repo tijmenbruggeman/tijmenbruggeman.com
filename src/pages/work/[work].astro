@@ -5,10 +5,10 @@ import { queryDatabase } from '../../notion';
 
 export async function getStaticPaths() {
     // retrieve content from database notion
-    const projects = await queryDatabase('93ad2c68a89f4a56be60d83af001240b');
+    const projects = await queryDatabase('aebbf2a7cfef42f39c7a05f7107ecb89');
     return projects.map((project) => ({
         params: {
-            log: project.slug,
+            work: project.slug,
         },
         props: project,
     }));
